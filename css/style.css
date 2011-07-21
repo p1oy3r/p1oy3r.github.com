@@ -1,0 +1,32 @@
+#wrapper {
+  border: 1px solid red;
+  border-radius: 20px;
+  float: left;
+  width: 590px;
+  background-color: #d6cfff; }
+
+h2 {
+  float: left;
+  margin: 20px;
+  width: 100%; }
+
+.month {
+  float: left;
+  height: 147px;
+  margin: 20px; }
+
+h1 {
+  text-align: center;
+  color: #ff0066; }
+
+.winterStyle {
+  color: #990099; }
+
+.autumnStyle {
+  color: #ff9900; }
+
+.summerStyle {
+  color: #ffff33; }
+
+.springStyle {
+  color: #00cc33; }

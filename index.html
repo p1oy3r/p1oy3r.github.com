@@ -1,0 +1,371 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <style>
+    body {
+      font: 12px Consolas;
+    }
+  </style>
+
+  <meta charset="UTF-8">
+  <title>Calendar</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="wrapper">
+<h1>
+  <script type="text/javascript">
+    var myYear = 2010;
+    document.write("--"+myYear+"--");
+  </script>
+  <br/></h1>
+<script type="text/javascript">
+
+  var arrOfDays;
+  var arrOfDays2;
+  var arrOfDays3;
+  var arrOfDays4;
+  var arrOfDays5;
+  var arrOfDays6;
+
+  function printFirstWeek(NMonth) {
+    var someWeek = "";
+    var day1 = new Date(myYear, NMonth, 1);
+    var my1Day = day1.getDay();
+    if (my1Day == 0) {
+      arrOfDays = '01|02|03|04|05|06|07'.split('|');
+    } else if (my1Day == 1) {
+      arrOfDays = '&nbsp&nbsp|01|02|03|04|05|06'.split('|');
+    } else if (my1Day == 2) {
+      arrOfDays = '&nbsp&nbsp|&nbsp&nbsp|01|02|03|04|05'.split('|');
+    } else if (my1Day == 3) {
+      arrOfDays = '&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|01|02|03|04'.split('|');
+    } else if (my1Day == 4) {
+      arrOfDays = '&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|01|02|03'.split('|');
+    } else if (my1Day == 5) {
+      arrOfDays = '&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|01|02'.split('|');
+    } else {
+      arrOfDays = '&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|01'.split('|');
+    }
+    return '|' + arrOfDays.join('|') + '|';
+  }
+
+  function printSecondWeek() {
+    if (arrOfDays[6] == '01') {
+      arrOfDays2 = '02|03|04|05|06|07|08'.split('|');
+    } else if (arrOfDays[6] == '02') {
+      arrOfDays2 = '03|04|05|06|07|08|09'.split('|');
+    } else if (arrOfDays[6] == '03') {
+      arrOfDays2 = '04|05|06|07|08|09|10'.split('|');
+    } else if (arrOfDays[6] == '04') {
+      arrOfDays2 = '05|06|07|08|09|10|11'.split('|');
+    } else if (arrOfDays[6] == '05') {
+      arrOfDays2 = '06|07|08|09|10|11|12'.split('|');
+    } else if (arrOfDays[6] == '06') {
+      arrOfDays2 = '07|08|09|10|11|12|13'.split('|');
+    } else if (arrOfDays[6] == '07') {
+      arrOfDays2 = '08|09|10|11|12|13|14'.split('|');
+    }
+    return '|' + arrOfDays2.join('|') + '|';
+  }
+
+  function printThirdWeek() {
+    if (arrOfDays2[6] == '08') {
+      arrOfDays3 = '09|10|11|12|13|14|15'.split('|');
+    } else if (arrOfDays2[6] == '09') {
+      arrOfDays3 = '10|11|12|13|14|15|16'.split('|');
+    } else if (arrOfDays2[6] == '10') {
+      arrOfDays3 = '11|12|13|14|15|16|17'.split('|');
+    } else if (arrOfDays2[6] == '11') {
+      arrOfDays3 = '12|13|14|15|16|17|18'.split('|');
+    } else if (arrOfDays2[6] == '12') {
+      arrOfDays3 = '13|14|15|16|17|18|19'.split('|');
+    } else if (arrOfDays2[6] == '13') {
+      arrOfDays3 = '14|15|16|17|18|19|20'.split('|');
+    } else if (arrOfDays2[6] == '14') {
+      arrOfDays3 = '15|16|17|18|19|20|21'.split('|');
+    }
+    return '|' + arrOfDays3.join('|') + '|';
+  }
+
+  function printFourthWeek() {
+    if (arrOfDays3[6] == '15') {
+      arrOfDays4 = '16|17|18|19|20|21|22'.split('|');
+    } else if (arrOfDays3[6] == '16') {
+      arrOfDays4 = '17|18|19|20|21|22|23'.split('|');
+    } else if (arrOfDays3[6] == '17') {
+      arrOfDays4 = '18|19|20|21|22|23|24'.split('|');
+    } else if (arrOfDays3[6] == '18') {
+      arrOfDays4 = '19|20|21|22|23|24|25'.split('|');
+    } else if (arrOfDays3[6] == '19') {
+      arrOfDays4 = '20|21|22|23|24|25|26'.split('|');
+    } else if (arrOfDays3[6] == '20') {
+      arrOfDays4 = '21|22|23|24|25|26|27'.split('|');
+    } else if (arrOfDays3[6] == '21') {
+      arrOfDays4 = '22|23|24|25|26|27|28'.split('|');
+    }
+    return '|' + arrOfDays4.join('|') + '|';
+  }
+
+  function printFifthWeek(NMonth) {
+    if ((arrOfDays4[6] == '22') && (NMonth == 1) && ((myYear % 4) != 0)) {
+      arrOfDays5 = '23|24|25|26|27|28|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '22') && (NMonth == 1) && ((myYear % 4) == 0)) {
+      arrOfDays5 = '23|24|25|26|27|28|29'.split('|');
+    } else if ((arrOfDays4[6] == '22') && (NMonth != 1)) {
+      arrOfDays5 = '23|24|25|26|27|28|29'.split('|');
+    } else if ((arrOfDays4[6] == '23') && (NMonth == 1) && ((myYear % 4) != 0)) {
+      arrOfDays5 = '24|25|26|27|28|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '23') && (NMonth == 1) && ((myYear % 4) == 0)) {
+      arrOfDays5 = '24|25|26|27|28|29|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '23') && (NMonth != 1)) {
+      arrOfDays5 = '24|25|26|27|28|29|30'.split('|');
+    } else if ((arrOfDays4[6] == '24') && (NMonth == 1) && ((myYear % 4) != 0)) {
+      arrOfDays5 = '25|26|27|28|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '24') && (NMonth == 1) && ((myYear % 4) == 0)) {
+      arrOfDays5 = '25|26|27|28|29|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '24') && (NMonth == 3 || NMonth == 5 || NMonth == 8 || NMonth == 10)) {
+      arrOfDays5 = '25|26|27|28|29|30|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '24') && (NMonth == 0 || NMonth == 2 || NMonth == 4 || NMonth == 6 || NMonth == 7 || NMonth == 9 || NMonth == 11)) {
+      arrOfDays5 = '25|26|27|28|29|30|31'.split('|');
+    } else if ((arrOfDays4[6] == '25') && (NMonth == 1) && ((myYear % 4) != 0)) {
+      arrOfDays5 = '26|27|28|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '25') && (NMonth == 1) && ((myYear % 4) == 0)) {
+      arrOfDays5 = '26|27|28|29|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '25') && (NMonth == 3 || NMonth == 5 || NMonth == 8 || NMonth == 10)) {
+      arrOfDays5 = '26|27|28|29|30|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '25') && (NMonth == 0 || NMonth == 2 || NMonth == 4 || NMonth == 6 || NMonth == 7 || NMonth == 9 || NMonth == 11)) {
+      arrOfDays5 = '26|27|28|29|30|31|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '26') && (NMonth == 1) && ((myYear % 4) != 0)) {
+      arrOfDays5 = '27|28|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '26') && (NMonth == 1) && ((myYear % 4) == 0)) {
+      arrOfDays5 = '27|28|29|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '26') && (NMonth == 3 || NMonth == 5 || NMonth == 8 || NMonth == 10)) {
+      arrOfDays5 = '27|28|29|30|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '26') && (NMonth == 0 || NMonth == 2 || NMonth == 4 || NMonth == 6 || NMonth == 7 || NMonth == 9 || NMonth == 11)) {
+      arrOfDays5 = '27|28|29|30|31|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '27') && (NMonth == 1) && ((myYear % 4) != 0)) {
+      arrOfDays5 = '28|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '27') && (NMonth == 1) && ((myYear % 4) == 0)) {
+      arrOfDays5 = '28|29|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '27') && (NMonth == 3 || NMonth == 5 || NMonth == 8 || NMonth == 10)) {
+      arrOfDays5 = '28|29|30|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '27') && (NMonth == 0 || NMonth == 2 || NMonth == 4 || NMonth == 6 || NMonth == 7 || NMonth == 9 || NMonth == 11)) {
+      arrOfDays5 = '28|29|30|31|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '28') && (NMonth == 1) && ((myYear % 4) != 0)) {
+      arrOfDays5 = '&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '28') && (NMonth == 1) && ((myYear % 4) == 0)) {
+      arrOfDays5 = '29|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '28') && (NMonth == 3 || NMonth == 5 || NMonth == 8 || NMonth == 10)) {
+      arrOfDays5 = '29|30|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays4[6] == '28') && (NMonth == 0 || NMonth == 2 || NMonth == 4 || NMonth == 6 || NMonth == 7 || NMonth == 9 || NMonth == 11)) {
+      arrOfDays5 = '29|30|31|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    }
+    return '|' + arrOfDays5.join('|') + '|';
+  }
+
+  function printSixthWeek(NMonth) {
+    if ((arrOfDays5[6] == '29') && (NMonth == 1)) {
+      arrOfDays6 = '&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays5[6] == '29') && (NMonth == 3 || NMonth == 5 || NMonth == 8 || NMonth == 10)) {
+      arrOfDays6 = '30|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays5[6] == '29') && (NMonth == 0 || NMonth == 2 || NMonth == 4 || NMonth == 6 || NMonth == 7 || NMonth == 9 || NMonth == 11)) {
+      arrOfDays6 = '30|31|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays5[6] == '30') && (NMonth == 3 || NMonth == 5 || NMonth == 8 || NMonth == 10)) {
+      arrOfDays6 = '&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if ((arrOfDays5[6] == '30') && (NMonth == 0 || NMonth == 2 || NMonth == 4 || NMonth == 6 || NMonth == 7 || NMonth == 9 || NMonth == 11)) {
+      arrOfDays6 = '31|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if (arrOfDays5[6] == '31') {
+      arrOfDays6 = '&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    } else if (arrOfDays5[6] == '&nbsp&nbsp') {
+      arrOfDays6 = '&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp|&nbsp&nbsp'.split('|');
+    }
+    return '|' + arrOfDays6.join('|') + '|';
+  }
+</script>
+<div class="winterStyle">
+  <h2>WINTER</h2>
+
+  <div class="month">
+
+    <h3>Desember</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(11) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(11) + "<br/>");
+      document.write(printSixthWeek(11));
+    </script>
+    <br/><br/>
+  </div>
+
+  <div class="month">
+    <h3>January</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(0) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(0) + "<br/>");
+      document.write(printSixthWeek(0));
+    </script>
+    <br/><br/>
+  </div>
+
+  <div class="month">
+    <h3>February</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(1) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(1) + "<br/>");
+      document.write(printSixthWeek(1));
+    </script>
+    <br/><br/>
+  </div>
+</div>
+<div class="springStyle">
+  <h2>Spring</h2>
+
+  <div class="month">
+
+    <h3>March</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(2) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(2) + "<br/>");
+      document.write(printSixthWeek(2));
+    </script>
+    <br/><br/>
+  </div>
+
+  <div class="month">
+    <h3>April</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(3) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(3) + "<br/>");
+      document.write(printSixthWeek(3));
+    </script>
+    <br/><br/>
+  </div>
+
+  <div class="month">
+    <h3>May</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(4) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(4) + "<br/>");
+      document.write(printSixthWeek(4));
+    </script>
+    <br/><br/>
+  </div>
+</div>
+<div class="summerStyle">
+  <h2>Summer</h2>
+
+  <div class="month">
+    <h3>June</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(5) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(5) + "<br/>");
+      document.write(printSixthWeek(5));
+    </script>
+    <br/><br/>
+  </div>
+
+  <div class="month">
+    <h3>July</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(6) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(6) + "<br/>");
+      document.write(printSixthWeek(6));
+    </script>
+    <br/><br/>
+  </div>
+
+  <div class="month">
+    <h3>August</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(7) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(7) + "<br/>");
+      document.write(printSixthWeek(7));
+    </script>
+    <br/><br/>
+  </div>
+</div>
+<div class="autumnStyle">
+  <h2>Autumn</h2>
+
+  <div class="month">
+    <h3>September</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(8) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(8) + "<br/>");
+      document.write(printSixthWeek(8));
+    </script>
+    <br/><br/>
+  </div>
+
+  <div class="month">
+    <h3>October</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(9) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(9) + "<br/>");
+      document.write(printSixthWeek(9));
+    </script>
+    <br/><br/>
+  </div>
+
+  <div class="month">
+    <h3>November</h3>
+    |Su|Mn|Tu|Wd|Th|Fr|St|<br/>
+    <script type="text/javascript">
+      document.write(printFirstWeek(10) + "<br/>");
+      document.write(printSecondWeek() + "<br/>");
+      document.write(printThirdWeek() + "<br/>");
+      document.write(printFourthWeek() + "<br/>");
+      document.write(printFifthWeek(10) + "<br/>");
+      document.write(printSixthWeek(10));
+    </script>
+    <br/><br/>
+  </div>
+</div>
+</div>
+</body>
+</html>
